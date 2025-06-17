@@ -12,6 +12,7 @@ const resources = {
         hypnosis: 'Um dáleiðslu',
         book: 'Panta tíma'
       },
+      title: 'Innri Kjarni',
       hero: {
         title: 'Umbreyttu lífi þínu með dáleiðslu',
         subtitle: 'Uppgötvaðu kraft undirmeðvitundarinnar',
@@ -65,6 +66,7 @@ const resources = {
         hypnosis: 'About Hypnosis',
         book: 'Book'
       },
+      title: 'Inner Core',
       hero: {
         title: 'Transform Your Life Through Hypnosis',
         subtitle: 'Discover the power of your subconscious mind and unlock your full potential',

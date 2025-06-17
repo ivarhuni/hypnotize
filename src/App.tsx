@@ -27,7 +27,7 @@ function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-serif text-secondary">Innri kraftur</h1>
+                <h1 className="text-2xl font-serif text-secondary">{t('title')}</h1>
               </div>
               <div className="hidden md:flex items-center space-x-6">
                 <a href="tel:+3548443079" className="flex items-center space-x-2 text-gray-300 hover:text-secondary transition-colors duration-200">
@@ -59,12 +59,6 @@ function App() {
                   </a>
                 ))}
               </div>
-              <button
-                onClick={toggleLanguage}
-                className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-secondary transition-colors duration-200"
-              >
-                {i18n.language === 'is' ? 'English' : 'Icelandic'}
-              </button>
             </div>
 
             {/* Mobile menu button */}
@@ -132,15 +126,6 @@ function App() {
                   {item.name}
                 </a>
               ))}
-              <button
-                onClick={() => {
-                  toggleLanguage()
-                  setIsMenuOpen(false)
-                }}
-                className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-secondary"
-              >
-                {i18n.language === 'is' ? 'English' : 'Icelandic'}
-              </button>
             </div>
           </motion.div>
         )}
