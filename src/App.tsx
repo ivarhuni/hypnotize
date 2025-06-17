@@ -27,7 +27,7 @@ function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-serif text-secondary">Dáleiðsla Eyrúnar</h1>
+                <h1 className="text-2xl font-serif text-secondary">Innri kraftur</h1>
               </div>
               <div className="hidden md:flex items-center space-x-6">
                 <a href="tel:+3548443079" className="flex items-center space-x-2 text-gray-300 hover:text-secondary transition-colors duration-200">
