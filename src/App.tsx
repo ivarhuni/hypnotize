@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   const navItems = [
     { name: t('nav.home'), href: '#home' },
@@ -14,10 +14,6 @@ function App() {
     { name: t('nav.hypnosis'), href: '#hypnosis' },
     { name: t('nav.book'), href: '#book' },
   ]
-
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'is' ? 'en' : 'is')
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -276,7 +272,8 @@ function App() {
                     <input
                       type="text"
                       id="name"
-                      className="mt-1 block w-full rounded-md bg-background-light border-primary/20 text-white focus:border-secondary focus:ring-secondary"
+                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm"
+                      placeholder={t('book.name')}
                     />
                   </div>
                   <div>
@@ -286,7 +283,8 @@ function App() {
                     <input
                       type="email"
                       id="email"
-                      className="mt-1 block w-full rounded-md bg-background-light border-primary/20 text-white focus:border-secondary focus:ring-secondary"
+                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm"
+                      placeholder={t('book.email')}
                     />
                   </div>
                   <div>
@@ -296,7 +294,8 @@ function App() {
                     <textarea
                       id="message"
                       rows={4}
-                      className="mt-1 block w-full rounded-md bg-background-light border-primary/20 text-white focus:border-secondary focus:ring-secondary"
+                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm"
+                      placeholder={t('book.message')}
                     ></textarea>
                   </div>
                   <button
