@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import aboutImage from './assets/images/about.jpg'
-import noonaLogo from './assets/images/noona.png'
 import { useLanguage } from './context/LanguageContext'
 
 function App() {
