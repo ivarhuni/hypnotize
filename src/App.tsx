@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import aboutImage from './assets/images/about.jpg'
-import { useLanguage } from './context/LanguageContext'
+import { useTranslation } from 'react-i18next'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { language, setLanguage, t } = useLanguage()
+  const { t, i18n } = useTranslation()
 
   const navItems = [
     { name: t('nav.home'), href: '#home' },
@@ -15,12 +15,16 @@ function App() {
     { name: t('nav.book'), href: '#book' },
   ]
 
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'is' ? 'en' : 'is')
+  }
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed w-full bg-background-dark/90 backdrop-blur-sm z-50 border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <div className="flex-shrink-0">
                 <h1 className="text-2xl font-serif text-secondary">Dáleiðsla Eyrúnar</h1>
@@ -43,7 +47,7 @@ function App() {
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center">
               <div className="flex items-baseline space-x-4">
                 {navItems.map((item) => (
                   <a
@@ -56,10 +60,10 @@ function App() {
                 ))}
               </div>
               <button
-                onClick={() => setLanguage(language === 'is' ? 'en' : 'is')}
+                onClick={toggleLanguage}
                 className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-secondary transition-colors duration-200"
               >
-                {language === 'is' ? 'English' : 'Icelandic'}
+                {i18n.language === 'is' ? 'English' : 'Icelandic'}
               </button>
             </div>
 
@@ -96,7 +100,7 @@ function App() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile menu */}
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -130,12 +134,12 @@ function App() {
               ))}
               <button
                 onClick={() => {
-                  setLanguage(language === 'is' ? 'en' : 'is')
+                  toggleLanguage()
                   setIsMenuOpen(false)
                 }}
                 className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-secondary"
               >
-                {language === 'is' ? 'English' : 'Icelandic'}
+                {i18n.language === 'is' ? 'English' : 'Icelandic'}
               </button>
             </div>
           </motion.div>
@@ -175,7 +179,7 @@ function App() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="py-20 bg-background-light">
+        <section id="about" className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-serif text-secondary mb-8">{t('about.title')}</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -205,7 +209,7 @@ function App() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-background">
+        <section id="services" className="py-20 bg-background-light">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-serif text-secondary mb-12 text-center">{t('services.title')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -244,7 +248,7 @@ function App() {
         </section>
 
         {/* Book Section */}
-        <section id="book" className="py-20 bg-background">
+        <section id="book" className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-serif text-secondary mb-8 text-center">{t('book.title')}</h2>
             <div className="max-w-2xl mx-auto space-y-12">
@@ -277,7 +281,7 @@ function App() {
                 </a>
               </div>
               
-              <div className="border-t border-primary/20 pt-12">
+              <div className="bg-background-light rounded-lg p-8 border border-primary/20">
                 <h3 className="text-2xl font-serif text-secondary mb-6 text-center">{t('book.contact_form')}</h3>
                 <form className="space-y-6">
                   <div>
