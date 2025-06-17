@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const navItems = [
     { name: t('nav.home'), href: '#home' },
@@ -14,6 +14,10 @@ function App() {
     { name: t('nav.hypnosis'), href: '#hypnosis' },
     { name: t('nav.book'), href: '#book' },
   ]
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng)
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -43,17 +47,37 @@ function App() {
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center">
-              <div className="flex items-baseline space-x-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-gray-300 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+            <div className="hidden md:flex items-center space-x-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              ))}
+              <div className="flex items-center space-x-2 ml-4">
+                <button
+                  onClick={() => changeLanguage('is')}
+                  className={`px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    i18n.language === 'is'
+                      ? 'bg-secondary text-primary-dark'
+                      : 'text-gray-300 hover:text-secondary'
+                  }`}
+                >
+                  IS
+                </button>
+                <button
+                  onClick={() => changeLanguage('en')}
+                  className={`px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    i18n.language === 'en'
+                      ? 'bg-secondary text-primary-dark'
+                      : 'text-gray-300 hover:text-secondary'
+                  }`}
+                >
+                  EN
+                </button>
               </div>
             </div>
 
@@ -122,6 +146,34 @@ function App() {
                   {item.name}
                 </a>
               ))}
+              <div className="flex items-center space-x-2 px-3 py-2">
+                <button
+                  onClick={() => {
+                    changeLanguage('is')
+                    setIsMenuOpen(false)
+                  }}
+                  className={`px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    i18n.language === 'is'
+                      ? 'bg-secondary text-primary-dark'
+                      : 'text-gray-300 hover:text-secondary'
+                  }`}
+                >
+                  IS
+                </button>
+                <button
+                  onClick={() => {
+                    changeLanguage('en')
+                    setIsMenuOpen(false)
+                  }}
+                  className={`px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    i18n.language === 'en'
+                      ? 'bg-secondary text-primary-dark'
+                      : 'text-gray-300 hover:text-secondary'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
