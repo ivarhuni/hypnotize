@@ -324,7 +324,7 @@ function App() {
                     <input
                       type="text"
                       id="name"
-                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm"
+                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm px-4 py-2"
                       placeholder={t('book.name')}
                     />
                   </div>
@@ -335,7 +335,7 @@ function App() {
                     <input
                       type="email"
                       id="email"
-                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm"
+                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm px-4 py-2"
                       placeholder={t('book.email')}
                     />
                   </div>
@@ -346,7 +346,7 @@ function App() {
                     <textarea
                       id="message"
                       rows={4}
-                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm"
+                      className="mt-1 block w-full rounded-md bg-white/10 border border-secondary text-white placeholder-gray-400 focus:bg-background focus:border-secondary focus:ring-secondary transition-colors duration-200 shadow-sm px-4 py-2"
                       placeholder={t('book.message')}
                     ></textarea>
                   </div>
